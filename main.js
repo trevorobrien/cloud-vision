@@ -65,6 +65,7 @@ $(function () {
     $('.js-video-' + team.toLowerCase()).css({
       display: 'block'
     })
+    $('.js-content-' + team.toLowerCase()).addClass('d-b').addClass('ms-d-f')
 
     setTimeout(function(){
       $('.js-logo').addClass('in')
