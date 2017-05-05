@@ -18,13 +18,6 @@ var CV_URL = 'https://vision.googleapis.com/v1/images:annotate?fields=responses&
 $(function () {
   $('#fileform').on('submit', uploadFiles);
 
-  $('.js-scan').on('click',function(){
-    $('.js-submit').css({
-      opacity: 1,
-      transition: '1s'
-    })
-  })
-
   var WIN = $(window);
   var DOC = $(document);
   var BODY = $("body");
@@ -90,13 +83,23 @@ $(function () {
 
 
 
-  // $('#cameraInput').on('change', function(e){
-  //  $data = e.originalEvent.target.files[0];
-  //   $reader = new FileReader();
-  //   reader.onload = function(evt){
-  //   $('#your_img_id').attr('src',evt.target.result);
-  //   reader.readAsDaraUrl($data);
-  // };
+  $('.js-scan-field').on('change', function(e){
+   $('.js-scan').text('SCANNING...').css({
+    background: 'black',
+    color: 'white'
+   })
+   setTimeout(function(){
+    $('.js-scan').text('SCANNING...').text('SCANNED!').css({
+     background: 'transparent',
+     border: 'solid white 3px',
+     color: 'white'
+    })
+    $('.js-submit').css({
+      opacity: 1,
+      transition: '1s'
+    })
+   },1000)
+  });
 
   /**
    * 'submit' event handler - reads the image bytes and sends it to the Cloud
@@ -146,7 +149,13 @@ $(function () {
       contentType: 'application/json'
     }).fail(function (jqXHR, textStatus, errorThrown) {
       $('#results').text('ERRORS: ' + textStatus + ' ' + errorThrown);
+      alert('ERRORS: ' + textStatus + ' ' + errorThrown)
     }).done(displayJSON);
+
+    $('.js-submit').val('...').css({
+     background: 'black',
+     color: 'white'
+    })
   }
 
   /**
