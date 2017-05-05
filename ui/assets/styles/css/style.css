@@ -6189,6 +6189,9 @@ a:active {
     height: calc(100vh - 4rem);
   }
 }
+.h-col05 {
+  height: 4.166666666vw;
+}
 .h-col1 {
   height: 8.3333333vw;
 }
