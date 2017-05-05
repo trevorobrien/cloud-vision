@@ -18,6 +18,13 @@ var CV_URL = 'https://vision.googleapis.com/v1/images:annotate?fields=responses&
 $(function () {
   $('#fileform').on('submit', uploadFiles);
 
+  $('.js-scan').on('click',function(){
+    $('.js-submit').css({
+      opacity: 1,
+      transition: '1s'
+    })
+  })
+
   var WIN = $(window);
   var DOC = $(document);
   var BODY = $("body");
