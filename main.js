@@ -65,6 +65,9 @@ $(function () {
     $('.js-video-' + team.toLowerCase()).css({
       display: 'block'
     })
+    BODY.css({
+      backgroundColor: "#000"
+    })
     $('.js-content-' + team.toLowerCase()).addClass('d-b').addClass('ms-d-f')
 
     setTimeout(function(){
