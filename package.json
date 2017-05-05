@@ -1,8 +1,51 @@
 {
-  "name": "narrowdesign",
+  "name": "web-docs-samples",
+  "description": "Web samples found on https://cloud.google.com.",
   "version": "0.0.1",
-  "description": "http://narrowdesign.com",
-  "main": "index.html",
+  "private": true,
+  "license": "Apache-2.0",
+  "author": "Google, Inc.",
+  "contributors": [
+    {
+      "name": "Tim Swast",
+      "email": "swast@google.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GoogleCloudPlatform/web-docs-samples.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GoogleCloudPlatform/web-docs-samples/issues"
+  },
+  "homepage": "https://github.com/GoogleCloudPlatform/web-docs-samples#readme",
+  "semistandard": {
+    "globals": [
+      "$",
+      "assert",
+      "before",
+      "describe",
+      "Event",
+      "fail",
+      "FileReader",
+      "Image",
+      "it",
+      "processFile",
+      "XMLHttpRequest"
+    ],
+    "ignore": [
+      "**/node_modules/**",
+      "coverage/",
+      "vision/browser/key.js"
+    ]
+  },
+  "scripts": {
+    "start": "http-server",
+    "karma_speech": "karma start speech/explore-api/karma.conf.js",
+    "karma_vision": "karma start vision/explore-api/karma.conf.js",
+    "lint": "semistandard \"**/*.js\"",
+    "test": "npm run lint && npm run karma_speech && npm run karma_vision"
+  },
   "dependencies": {
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
@@ -12,10 +55,24 @@
     "grunt-contrib-clean": "*"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "express": "^4.13.4",
+    "http-server": "^0.9.0",
+    "karma": "^1.1.1",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-coverage": "^1.1.0",
+    "karma-detect-browsers": "^2.1.0",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-mocha": "^1.1.1",
+    "karma-phantomjs-launcher": "^1.0.1",
+    "karma-safari-launcher": "^1.0.0",
+    "karma-sinon": "^1.0.5",
+    "mocha": "^2.5.3",
+    "semistandard": "^8.0.0",
+    "sinon": "^1.17.7",
     "grunt-postcss": "^0.8.0",
     "grunt-uncss": "^0.6.1",
     "postcss": "^5.2.16"
-  },
-  "author": "Nick Jones",
-  "license": ""
+  }
 }
